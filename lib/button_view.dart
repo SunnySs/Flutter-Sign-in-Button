@@ -35,6 +35,9 @@ class SignInButton extends StatelessWidget {
   // overrides the default button elevation
   final double elevation;
 
+  // overrides the default button max width
+  final double width;
+
   /// The constructor is fairly self-explanatory.
   SignInButton(
     this.button, {
@@ -43,8 +46,9 @@ class SignInButton extends StatelessWidget {
     this.padding = const EdgeInsets.all(0),
     this.shape,
     this.text,
-    this.elevation = 2.0,
+    this.elevation = 0.0,
     this.textStyle,
+    this.width,
   })  : assert(button != null),
         assert(onPressed != null),
         assert(mini != true || !(button == Buttons.Google || button == Buttons.GoogleDark),
@@ -63,11 +67,12 @@ class SignInButton extends StatelessWidget {
           text: text ?? 'Sign in with Google',
           textStyle: textStyle ??
               TextStyle(
-                fontFamily: 'Roboto',
-                color: button == Buttons.Google ? Color.fromRGBO(0, 0, 0, 0.54) : Color(0xFFFFFFFF),
-                fontSize: 14.0,
+                // fontFamily: 'Roboto',
+                // color: button == Buttons.Google ? Color.fromRGBO(0, 0, 0, 0.54) : Color(0xFFFFFFFF),
+                fontSize: 19.0,
                 backgroundColor: Color.fromRGBO(0, 0, 0, 0),
               ),
+          width: width ?? 230,
           image: Container(
             margin: EdgeInsets.fromLTRB(0.0, 0.0, 10.0, 0.0),
             child: ClipRRect(
@@ -123,11 +128,12 @@ class SignInButton extends StatelessWidget {
           text: text ?? 'Sign in with Apple',
           textStyle: textStyle ??
               TextStyle(
-                fontFamily: 'Roboto',
+                // fontFamily: 'Roboto',
                 color: button == Buttons.Apple ? Colors.black : Colors.white,
-                fontSize: 14.0,
+                fontSize: 19.0,
                 backgroundColor: Color.fromRGBO(0, 0, 0, 0),
               ),
+          width: width ?? 230,
           icon: FontAwesomeIcons.apple,
           iconColor: button == Buttons.Apple ? Colors.black : Colors.white,
           backgroundColor: button == Buttons.Apple ? Color(0xFFFFFFFF) : Color(0xFF000000),
